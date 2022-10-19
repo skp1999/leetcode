@@ -20,9 +20,6 @@ public:
         }
         
         sort(v.begin(), v.end(), cmp);
-//         for(auto i:v) {
-//             cout<<i.first<<" "<<i.second<<endl;
-//         }
         
         for(auto i:v) {
             if(k>0) {
