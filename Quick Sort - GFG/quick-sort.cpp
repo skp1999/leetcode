@@ -28,24 +28,36 @@ class Solution
     array, and places all smaller (smaller than pivot)
     to left of pivot and all greater elements to right
     of pivot */
-    public:
-    int partition(int arr[], int low, int high)
-    {
-        int pivot = arr[high]; // pivot
-        int i
-            = (low
-               - 1); // Index of smaller element and indicates
-                     // the right position of pivot found so far
+    // public:
+    // int partition(int arr[], int low, int high)
+    // {
+    //     int pivot = arr[high]; // pivot
+    //     int i = (low - 1); // Index of smaller element and indicates
+    //                  // the right position of pivot found so far
       
-        for (int j = low; j <= high - 1; j++) {
-            // If current element is smaller than the pivot
-            if (arr[j] < pivot) {
-                i++; // increment index of smaller element
-                swap(&arr[i], &arr[j]);
-            }
-        }
-        swap(&arr[i + 1], &arr[high]);
-        return (i + 1);
+    //     for (int j = low; j <= high - 1; j++) {
+    //         // If current element is smaller than the pivot
+    //         if (arr[j] < pivot) {
+    //             i++; // increment index of smaller element
+    //             swap(&arr[i], &arr[j]);
+    //         }
+    //     }
+    //     swap(&arr[i + 1], &arr[high]);
+    //     return (i + 1);
+    // }
+    
+    public:
+    int partition (int arr[], int low, int high)
+    {
+        int pivot = arr[high], pIndex=low-1;
+      for(int i=low;i<=high-1;i++) {
+          if(arr[i]<pivot) {
+              pIndex++;
+              swap(&arr[pIndex], &arr[i]);
+          }
+      }
+      swap(&arr[pIndex+1], &arr[high]);
+      return pIndex+1; 
     }
     
     
@@ -59,24 +71,7 @@ class Solution
         quickSort(arr, pIndex+1, high);
     }
     
-    // public:
-    // int partition (int arr[], int low, int high)
-    // {
-    //     int pivot = arr[high], pIndex=low-1;
-    //   for(int i=low;i<=high-1;i++) {
-    //       if(arr[i]<pivot) {
-    //           pIndex++;
-    //           int temp = arr[i];
-    //           arr[i] = arr[pIndex];
-    //           arr[pIndex]=arr[i];
-               
-    //       }
-    //   }
-    //     int temp = arr[pIndex+1];
-    //   arr[pIndex+1] = arr[high];
-    //   arr[high]=temp;
-    //   return pIndex+1; 
-    // }
+   
 };
 
 
